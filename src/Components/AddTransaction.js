@@ -13,6 +13,9 @@ export const AddTransaction = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setText("");
+    setAmount(0);
+    setTransactionType("");
 
     const newTransaction = {
       id: Math.floor(Math.random() * 100000000000),
@@ -43,7 +46,7 @@ export const AddTransaction = () => {
             <input type="radio" id="income" name="transaction" value="income" onClick={(e) => setTransactionType("income")} />Income
           </label>
         </div>
-        <button className="btn">Add transaction</button>
+        <button className="btn" disabled={text === "" & amount === 0 & transactionType === "" ? true : false}>Add transaction</button>
       </form>
     </div>
   );
